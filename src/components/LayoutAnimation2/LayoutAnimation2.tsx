@@ -28,6 +28,12 @@ const data: Item[] = [
 	title: 'The Oddysey',
 	description: 'Explore unknown galaxies',
 	fullDescription: 'Throughout their journey, players will encounter diverse alien races, each with their own unique cultures and technologies. Engage in thrilling space combat, negotiate complex diplomatic relations, and make critical decisions that affect the balance of power in the galaxy.',
+  },
+  {
+	id: 'pirates',
+	title: 'Pirates in the jungle',
+	description: 'Find the treasure',
+	fullDescription: 'You are a pirate and you have to find the treasure in the jungle. But be careful, there are traps and wild animals. Some filler text to make it longer. Maybe even longer, because it looks better.',
   }
 ];
 
@@ -66,7 +72,7 @@ const LayoutAnimation2 = () => {
 		  {
 			openedItemData && (
 			  <>
-				<motion.div className={styles.item_modal} layoutId={openedItemData.id}
+				<motion.div key={openedItemData.id} className={styles.item_modal} layoutId={openedItemData.id}
 							onClick={() => setOpenedItem(null)}>
 				  <AppInfoItem item={openedItemData}/>
 				  <motion.p className={styles.description}>

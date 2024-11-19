@@ -20,12 +20,6 @@
   cursor: pointer;
 }
 
-/*.item:not(:last-child) {*/
-/*  .item_info {*/
-/*    border-bottom: 1px solid #2b2b2b;*/
-/*  }*/
-/*}*/
-
 .item_info {
   display: flex;
   align-items: center;
