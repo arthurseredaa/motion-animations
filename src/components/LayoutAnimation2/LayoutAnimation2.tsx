@@ -51,7 +51,7 @@ const AppInfoItem = ({item, handleClick, layoutId}: AppInfoItemProps) => (
   </motion.div>
 )
 
-// TODO: fix modal exit animation
+// TODO: add overlay with animation
 const LayoutAnimation2 = () => {
   const [openedItem, setOpenedItem] = useState<null | string>(null);
 
@@ -60,20 +60,15 @@ const LayoutAnimation2 = () => {
   return (
 	<Layout className={styles.container} title="Layout animation #2">
 	  <div className={styles.content}>
-		<AnimatePresence mode="popLayout">
+		<AnimatePresence>
 		  {data.map((item) => <AppInfoItem item={item} key={item.id} layoutId={item.id}
 										   handleClick={() => setOpenedItem(item.id)}/>)}
 		  {
 			openedItemData && (
 			  <>
-				<motion.div
-				  initial={{opacity: 0}}
-				  animate={{opacity: 1}}
-				  className={styles.overlay}
-				  onClick={() => setOpenedItem(null)}
-				/>
-				<motion.div className={styles.item_modal} layoutId={openedItemData.id}>
-				  <AppInfoItem item={openedItemData} />
+				<motion.div className={styles.item_modal} layoutId={openedItemData.id}
+							onClick={() => setOpenedItem(null)}>
+				  <AppInfoItem item={openedItemData}/>
 				  <motion.p className={styles.description}>
 					{openedItemData.fullDescription}
 				  </motion.p>
