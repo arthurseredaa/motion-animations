@@ -43,6 +43,9 @@ type AppInfoItemProps = {
   layoutId?: string;
 }
 
+// TODO: add border bottom
+// FIX: border added to last item when modal open
+
 const AppInfoItem = ({item, handleClick, layoutId}: AppInfoItemProps) => (
   <motion.div className={styles.item} layoutId={layoutId} onClick={handleClick}>
 	<motion.img className={styles.image} src={`/images/games/${item.id}.png`} alt={item.title}
