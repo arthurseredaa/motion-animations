@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #212121;
+  color: #fff;
+}
+
+.progress_bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-color: #EF9A9A;
+  transform-origin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+}

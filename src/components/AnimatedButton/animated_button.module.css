@@ -1,0 +1,22 @@
+.button {
+  border: none;
+  font-size: 13px;
+  height: 32px;
+  width: 148px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  color: #212121;
+}
+
+.button:disabled {
+  color: #fcfcfc;
+}
+
+.button span {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}

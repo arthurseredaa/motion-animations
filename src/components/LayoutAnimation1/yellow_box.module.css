@@ -1,0 +1,31 @@
+.small_square {
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.big_square {
+  width: 50vw;
+  height: 50vh;
+  background: #5899fa;
+  cursor: pointer;
+  position: absolute;
+  inset: auto;
+
+  padding: 20px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.wrapper {
+  gap: 0;
+}
+
+.layout {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+}
