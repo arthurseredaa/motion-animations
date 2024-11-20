@@ -1,0 +1,21 @@
+.small_box,
+.big_box {
+  background-color: lightyellow;
+  border-radius: 12px;
+}
+
+.small_box {
+  width: 100px;
+  height: 100px;
+}
+
+.big_box {
+  width: 200px;
+  height: 200px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
