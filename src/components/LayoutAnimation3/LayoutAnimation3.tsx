@@ -1,7 +1,7 @@
 import {AnimatePresence, motion} from "motion/react";
 import Layout from "../common/Layout";
 import styles from './layout_animation.module.css'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 type Item = {
   id: string;
@@ -60,23 +60,46 @@ const AppInfoItem = ({item, handleClick, layoutId}: AppInfoItemProps) => (
   </motion.div>
 )
 
-// TODO: add overlay with animation
 const LayoutAnimation3 = () => {
   const [openedItem, setOpenedItem] = useState<null | string>(null);
 
   const openedItemData = data.find((item) => item.id === openedItem);
 
+  useEffect(() => {
+	const controller = new AbortController();
+
+	const onKeyDown = (event: KeyboardEvent) => {
+	  if (event.key === "Escape") {
+		setOpenedItem(null);
+	  }
+	}
+
+	window.addEventListener("keydown", onKeyDown, { signal: controller.signal });
+
+	return () => controller.abort()
+  }, []);
+
   return (
 	<Layout className={styles.container} title="Shared layout animations #3">
 	  <div className={styles.content}>
+		<AnimatePresence>
+		  {openedItemData ? (
+			<motion.div
+			  initial={{ opacity: 0 }}
+			  animate={{ opacity: 1 }}
+			  exit={{ opacity: 0 }}
+			  className={styles.overlay}
+			  onClick={() => setOpenedItem(null)}
+			/>
+		  ) : null}
+		</AnimatePresence>
 		<AnimatePresence>
 		  {data.map((item) => <AppInfoItem item={item} key={item.id} layoutId={item.id}
 										   handleClick={() => setOpenedItem(item.id)}/>)}
 		  {
 			openedItemData && (
 			  <>
-				<motion.div key={openedItemData.id} className={styles.item_modal} layoutId={openedItemData.id}
-							onClick={() => setOpenedItem(null)}>
+				<motion.div key={openedItemData.id} className={styles.item_modal} layoutId={openedItemData.id}>
 				  <AppInfoItem item={openedItemData}/>
 				  <motion.p className={styles.description}>
 					{openedItemData.fullDescription}

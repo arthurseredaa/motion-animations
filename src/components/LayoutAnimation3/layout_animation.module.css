@@ -66,10 +66,10 @@
   background-color: #191918;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-
   display: flex;
   flex-direction: column;
   gap: 16px;
+  cursor: pointer;
 }
 
 .overlay {
